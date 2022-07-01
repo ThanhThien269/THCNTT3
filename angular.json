@@ -103,6 +103,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "Fire:build:production",
+            "firebaseProject": "iot-gas-ef9f8",
+            "firebaseHostingSite": "iot-gas-ef9f8"
+          }
         }
       }
     }

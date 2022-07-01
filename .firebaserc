@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "iot-gas-ef9f8": {
+      "hosting": {
+        "Fire": [
+          "iot-gas-ef9f8"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "iot-gas-ef9f8"
+  }
+}
