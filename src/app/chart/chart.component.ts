@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Database, onValue, ref, set } from "@angular/fire/database";
-
+import { doc, onSnapshot } from "firebase/firestore";
 
 @Component({
   selector: 'app-chart',
@@ -12,11 +12,14 @@ export class ChartComponent implements OnInit {
   public time:Array<any>=[];
   public lineChartLabels=this.time;
   public lineChartData:any[]=[
-    {data:this.ListItem,label:'Gas'}
+    {data:"",label:'Gas'}
   ];
 
 
-  constructor(public db:Database) {  const starCountRef = ref(this.db, 'FirebaseIOT/' );
+  constructor(public db:Database,) {  const starCountRef = ref(this.db, 'FirebaseIOT/' );
+  // const unsub = onSnapshot(doc(,"Gas","time"), (doc)=>{
+  //   console.log(doc.data());
+  // })
   onValue(starCountRef, (snapshot) => {
   const data = snapshot.val();
 if(this.ListItem.length <10 && this.time.length <10){
@@ -28,11 +31,14 @@ if(this.ListItem.length <10 && this.time.length <10){
 {
   this.ListItem.shift();
   this.time.shift();
-
+  
 }
+ this.lineChartData = [
+  {data:this.ListItem,label:'Gas'}
+];
 
 }); }
-  
+
   ngOnInit(): void {
   }
 
@@ -59,3 +65,4 @@ if(this.ListItem.length <10 && this.time.length <10){
 
 //   }
 }
+
