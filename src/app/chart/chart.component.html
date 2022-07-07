@@ -7,5 +7,21 @@
     [type]="'line'"></canvas>
     </div>
     
-    
+    <div *ngIf="showAudio">
+        <div>Cháyyyyyy</div>
+        <audio autoplay preload="none" loop>
+            <!-- <source src="../assets/music/Chạy Ngay Đi - Sơn Tùng M-TP - Bài hát, lyrics.mp3"> -->
+            <!-- <source src="https://open.spotify.com/track/4z9gBZQjGS4QLb4LOvmeuA?si=da26e45329dd4a36"> -->
+            <source src="../../assets/music/appviet-vn-coibaochay.mp3">
+            
+        </audio>
+    </div>
+    <div *ngIf="!showAudio">
+        <div>Vẫn bình thường!</div>
+        <audio autoplay preload="none" loop>
+            <!-- <source src="../assets/music/Chạy Ngay Đi - Sơn Tùng M-TP - Bài hát, lyrics.mp3"> -->
+            <!-- <source src="https://open.spotify.com/track/4z9gBZQjGS4QLb4LOvmeuA?si=da26e45329dd4a36"> -->
+            <source src="../../assets/music/Sonate-Anh-Trang-Beethoven.mp3">
+        </audio>
+    </div>
     

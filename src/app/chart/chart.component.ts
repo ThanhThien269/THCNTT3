@@ -14,18 +14,18 @@ export class ChartComponent implements OnInit {
   public lineChartData:any[]=[
     {data:"",label:'Gas'}
   ];
-
-
+  data: any
+  showAudio !: boolean;
   constructor(public db:Database,) {  const starCountRef = ref(this.db, 'FirebaseIOT/' );
   // const unsub = onSnapshot(doc(,"Gas","time"), (doc)=>{
   //   console.log(doc.data());
   // })
   onValue(starCountRef, (snapshot) => {
-  const data = snapshot.val();
+  this.data = snapshot.val();
 if(this.ListItem.length <10 && this.time.length <10){
-  this.ListItem.push(data.gas)
+  this.ListItem.push(this.data.gas)
   console.log(this.ListItem)
-  this.time.push(data.time)
+  this.time.push(this.data.time)
   console.log(this.time)
 }else
 {
@@ -41,7 +41,16 @@ if(this.ListItem.length <10 && this.time.length <10){
 
   ngOnInit(): void {
   }
+  checkGas() {
+    if (Number(this.data.Gas) >= 700) {
+      this.showAudio = true;
+      
+    } else {
+      this.showAudio = false;
+      
+    }
 
+  }
   
 //   setData(){
 // let d= new Date();
